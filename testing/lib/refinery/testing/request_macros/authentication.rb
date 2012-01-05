@@ -3,7 +3,7 @@ module Refinery
     module RequestMacros
       module Authentication
         def login_refinery_user
-          before(:each) do
+          before do
             password = '123456'
             refinery_user = FactoryGirl.create(:refinery_user, {
               :username => "refinerycms",
@@ -21,7 +21,7 @@ module Refinery
         end
 
         def login_refinery_translator
-          before(:each) do
+          before do
             password = '123456'
             FactoryGirl.create(:refinery_user)
             user = FactoryGirl.create(:refinery_translator, {

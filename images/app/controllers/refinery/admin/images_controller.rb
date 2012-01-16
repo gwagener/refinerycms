@@ -53,7 +53,7 @@ module ::Refinery
         end
 
         unless params[:insert]
-          if @images.all?{|i| i.valid?}
+          if @images.all?(&:valid?)
             flash.notice = t('created', :scope => 'refinery.crudify', :what => "'#{@images.collect{|i| i.title}.join("', '")}'")
             unless from_dialog?
               redirect_to refinery.admin_images_path
@@ -66,7 +66,7 @@ module ::Refinery
           end
         else
           # if all uploaded images are ok redirect page back to dialog, else show current page with error
-          if @images.all?{|i| i.valid?}
+          if @images.all?(&:valid?)
             @image_id = @image.id if @image.persisted?
             @image = nil
 

@@ -1,5 +1,5 @@
 Refinery::Core::Engine.routes.draw do
-  match '/system/images/*dragonfly', :to => Dragonfly[:images]
+  match '/system/images/*dragonfly', :to => Dragonfly[:refinery_images]
 
   namespace :admin, :path => 'refinery' do
     resources :images, :except => :show do

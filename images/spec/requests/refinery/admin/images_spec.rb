@@ -72,7 +72,7 @@ module Refinery
       let!(:image) { FactoryGirl.create(:image) }
 
       it "succeeds" do
-        visit refinery_admin_images_path
+        visit refinery.admin_images_path
 
         lambda { click_link "View this image" }.should_not raise_error
       end
